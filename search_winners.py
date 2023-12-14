@@ -7,6 +7,7 @@ model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
 df = pd.read_csv('ev-winners.csv')
 
 # Generate embeddings. Uses description col only.
+names = df['name'].to_numpy()
 descriptions = df['description'].to_numpy()
 embeddings = model.encode(descriptions)
 
@@ -20,7 +21,7 @@ def get_ev_winners(query):
 
     all_sentence_combinations = []
     for i in range(len(cos_sim)-1):
-        all_sentence_combinations.append([cos_sim[i], descriptions[i]])
+        all_sentence_combinations.append([cos_sim[i], descriptions[i], names[i]])
 
     # Sort list by the highest cosine similarity score
     all_sentence_combinations = sorted(
@@ -32,7 +33,7 @@ def get_ev_winners(query):
 def search_ev_winners(query, number):
     print(f"Top {number} matches for query: {query}\n")
     for index, item in enumerate(get_ev_winners(query)[:number], start=1):
-        print(f"{index}. {item[1]}")
+        print(f"{index}. {item[2]}: {item[1]}")
 
 
 if __name__ == "__main__":
