@@ -38,7 +38,7 @@ def search_ev_winners(query, number):
 
 if __name__ == "__main__":
     if len(sys.argv) not in [2, 3]:
-        print("Usage: python your_script.py [query] [optional: number]")
+        print("Usage: python your_script.py [query] [optional: number of results]")
         sys.exit(1)
 
     query = sys.argv[1]
