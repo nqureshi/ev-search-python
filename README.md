@@ -10,6 +10,6 @@ Usage for the Python script: just download the repo, install dependencies
 
 and then: 
 
-```python3 search_winners.py [query] [number-of-results]"```
+```python3 search_winners.py [query] [number-of-results]```
 
 Note that the number-of-results argument is optional and defaults to 10. This returns 10 results. 
