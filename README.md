@@ -6,10 +6,16 @@ This repo has a CSV of all EV winners until December 2023. In addition, there is
 
 Usage for the Python script: just download the repo, install dependencies
 
-```pip3 install``` 
+```pip install``` 
 
 and then: 
 
-```python3 search_winners.py [query] [number-of-results]```
+```python scripts/search_winners.py [query] [number-of-results]```
 
 Note that the number-of-results argument is optional and defaults to 10. This returns 10 results. 
+
+The scripts folder also contains generate_embeddings_py, which I use to generate embeddings for each EV winner's project description for semantic search. Usage is just:
+
+```python scripts/generate_embeddings.py```
+
+...which updates the data in /data, using the CSV file ev-winners.csv. 

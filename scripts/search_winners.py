@@ -4,7 +4,7 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 
 model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
-df = pd.read_csv('../data/ev-winners.csv')
+df = pd.read_csv('data/ev-winners.csv')
 
 # Generate embeddings. Uses description col only.
 names = df['name'].to_numpy()
